@@ -10,10 +10,7 @@ module.exports = {
 		Object.defineProperty(r, "headers", {
 			value: h
 		})
-		Object.defineProperty(r, "body", {
-			value: await r.text()
-		})
-		return new Response(r.body, {...r})
+		return new Response(await r.text(), {...r})
 	},
 	runtime: "nodejs"
 }
