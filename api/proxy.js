@@ -7,6 +7,8 @@ export async function GET(req, res) {
 	var r = await fetch(u)
 	var h = new Headers(r.headers)
 	h.append("access-control-allow-origin", "*")
-	r = new Response(r.body, {...r, headers: h})
+	Object.defineProperty(r, "headers", {
+		value: h
+	})
 	return r
 }
