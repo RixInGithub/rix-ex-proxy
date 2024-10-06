@@ -7,11 +7,12 @@ export async function GET(req, res) {
 	var r = await fetch(u)
 	var h = new Headers(r.headers)
 	h.append("access-control-allow-origin", "*")
+	h.set("access-control-allow-origin", "*")
 	Object.defineProperty(r, "headers", {
 		value: h
 	})
 	Object.defineProperty(r, "body", {
 		value: await r.text()
 	})
-	return r
+	return new Response(r.body, {...r})
 }
