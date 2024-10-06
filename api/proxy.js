@@ -1,7 +1,6 @@
 export const runtime = "nodejs"
 
 export async function GET(req, res) {
-	console.log("req is", req)
-	console.log("res is", res)
+	console.log(new URL(req.url).searchParams)
 	return await fetch(req.query.url)
 }
