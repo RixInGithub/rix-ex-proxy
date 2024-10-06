@@ -1,5 +1,5 @@
 module.exports = {
-	async function GET(req, res) {
+	GET: async function(req, res) {
 		var p = Object.fromEntries(new URL(req.url).search.slice(1).split("&").map(function(a){return a.split("=")}))
 		var u = decodeURIComponent(p.url)
 		console.log(u)
